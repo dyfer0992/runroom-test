@@ -29,9 +29,18 @@ jobs:
                       ${{ runner.os }}-php-
             - name: Install dependencies
               run: composer install --prefer-dist --no-progress
+            - name: Install php-cs-fixer
+              run: composer install --working-dir=tools/php-cs-fixer
             - name: Run tests
               run: ./vendor/bin/phpunit
             - name: Run PHPStan
               run: ./vendor/bin/phpstan
             - name: Run Psalm
               run: ./vendor/bin/psalm
+            - name: Run PHP-CS-Fixer in src
+              run: ./tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src
+            - name: Run PHP-CS-Fixer in tests
+              run: ./tools/php-cs-fixer/vendor/bin/php-cs-fixer fix tests
+            - uses: stefanzweifel/git-auto-commit-action@v4
+              with:
+                   commit_message: Apply php-cs-fixer changes
