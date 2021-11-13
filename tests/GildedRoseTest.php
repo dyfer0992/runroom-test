@@ -88,7 +88,7 @@ class GildedRoseTest extends TestCase
   	}
 
     /**
-     * @return array<array>
+     * @return array<array<int>>
      */
     public static function backstageRules(): array
     {
