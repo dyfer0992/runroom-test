@@ -3,16 +3,19 @@
 namespace Runroom\GildedRose;
 
 class GildedRose {
-
+    /** @var array<Item>  */
     private array $items;
 
+    /**
+     * GildedRose constructor.
+     * @param array<Item> $items
+     */
     function __construct(array $items) {
         $this->items = $items;
     }
 
     function update_quality(): void {
         foreach ($this->items as $item) {
-
             if ($item->name == Item::FIXED_NAMES['SULFURA']) {
                 continue;
             }
