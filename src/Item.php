@@ -3,6 +3,11 @@
 namespace Runroom\GildedRose;
 
 class Item {
+    const FIXED_NAMES = [
+        'AGED'      => 'Aged Brie',
+        'BACKSTAGE' => 'Backstage passes to a TAFKAL80ETC concert',
+        'SULFURA'   => 'Sulfuras, Hand of Ragnaros',
+    ];
 
     public string $name;
     public int $sell_in;
