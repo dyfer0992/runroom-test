@@ -29,6 +29,11 @@ class GildedRose {
 
     protected function updateItemQuality(Item $item): void
     {
+        if ($item->quality >= Item::MAX_QUALITY) {
+            $item->quality = Item::MAX_QUALITY;
+            return;
+        }
+
         if (
             $item->name != Item::FIXED_NAMES['AGED']
             && $item->name != Item::FIXED_NAMES['BACKSTAGE']
@@ -38,9 +43,7 @@ class GildedRose {
             return;
         }
 
-        if ($item->quality < Item::MAX_QUALITY) {
-            $item->quality++;
-        }
+        $item->quality++;
 
         if ($item->name == Item::FIXED_NAMES['BACKSTAGE']) {
             if ($item->sell_in < 0) {

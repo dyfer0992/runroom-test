@@ -65,7 +65,7 @@ class GildedRoseTest extends TestCase
      */
     public function qualityCannotBeGreaterThan50(): void
     {
-  		$items = [new Item('Aged Brie', 0, 50)];
+  		$items = [new Item('Aged Brie', 0, 60)];
 
         $gilded_rose = new GildedRose($items);
         $gilded_rose->update_quality();
