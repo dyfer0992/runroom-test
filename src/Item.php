@@ -9,6 +9,8 @@ class Item {
         'SULFURA'   => 'Sulfuras, Hand of Ragnaros',
     ];
 
+    const MAX_QUALITY = 50;
+
     public string $name;
     public int $sell_in;
     public int $quality;
